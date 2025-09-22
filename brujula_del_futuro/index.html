@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brújula de Futuro - El cambio empieza en tus manos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        accent: '#F59E0B',
+                        warm: '#EF4444'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-primary">🧭 Brújula de Futuro</div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" onclick="showSection('home')" class="nav-link text-gray-700 hover:text-primary font-medium">Inicio</a>
+                    <a href="#" onclick="showSection('courses')" class="nav-link text-gray-700 hover:text-primary font-medium">Cursos</a>
+                    <a href="#" onclick="showSection('vocational')" class="nav-link text-gray-700 hover:text-primary font-medium">Orientación</a>
+                    <a href="#" onclick="showSection('mentors')" class="nav-link text-gray-700 hover:text-primary font-medium">Mentores</a>
+                    <a href="#" onclick="showSection('profile')" class="nav-link text-gray-700 hover:text-primary font-medium">Mi Perfil</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="showLogin()" class="text-primary hover:text-blue-700 font-medium">Iniciar Sesión</button>
+                    <button onclick="showRegister()" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Registrarse</button>
+                </div>
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#" onclick="showSection('home')" class="block px-3 py-2 text-gray-700 hover:text-primary">Inicio</a>
+                <a href="#" onclick="showSection('courses')" class="block px-3 py-2 text-gray-700 hover:text-primary">Cursos</a>
+                <a href="#" onclick="showSection('vocational')" class="block px-3 py-2 text-gray-700 hover:text-primary">Orientación</a>
+                <a href="#" onclick="showSection('mentors')" class="block px-3 py-2 text-gray-700 hover:text-primary">Mentores</a>
+                <a href="#" onclick="showSection('profile')" class="block px-3 py-2 text-gray-700 hover:text-primary">Mi Perfil</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <div id="home-section" class="section">
+        <!-- Hero Section -->
+        <div class="gradient-bg text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Brújula de Futuro</h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">El cambio empieza en tus manos</p>
+                <p class="text-lg mb-10 max-w-3xl mx-auto">Descubre tu vocación, desarrolla nuevas habilidades y conecta con mentores que te guiarán hacia el futuro profesional que deseas.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="showSection('vocational')" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition text-lg">🧭 Descubre tu Vocación</button>
+                    <button onclick="showSection('courses')" class="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-600 transition text-lg">📚 Explorar Cursos</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800">¿Cómo te ayudamos?</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-8 rounded-xl bg-blue-50 card-hover">
+                        <div class="text-5xl mb-4">🎯</div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Orientación Vocacional</h3>
+                        <p class="text-gray-600">Tests interactivos y herramientas personalizadas para descubrir tus fortalezas y pasiones.</p>
+                    </div>
+                    <div class="text-center p-8 rounded-xl bg-green-50 card-hover">
+                        <div class="text-5xl mb-4">📖</div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Cursos Especializados</h3>
+                        <p class="text-gray-600">Talleres virtuales en tecnología, arte, salud, emprendimiento y más áreas profesionales.</p>
+                    </div>
+                    <div class="text-center p-8 rounded-xl bg-yellow-50 card-hover">
+                        <div class="text-5xl mb-4">👥</div>
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Mentores Expertos</h3>
+                        <p class="text-gray-600">Conecta con profesionales experimentados que te guiarán en tu desarrollo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses Section -->
+    <div id="courses-section" class="section hidden">
+        <div class="py-12 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">📚 Catálogo de Cursos</h1>
+                    <p class="text-lg text-gray-600">Explora nuestros talleres virtuales y encuentra tu área de interés</p>
+                </div>
+
+                <!-- Course Categories -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button onclick="filterCourses('all')" class="category-btn bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition">Todos</button>
+                    <button onclick="filterCourses('tech')" class="category-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition">💻 Tecnología</button>
+                    <button onclick="filterCourses('art')" class="category-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition">🎨 Arte</button>
+                    <button onclick="filterCourses('health')" class="category-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition">🏥 Salud</button>
+                    <button onclick="filterCourses('business')" class="category-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition">💼 Emprendimiento</button>
+                </div>
+
+                <!-- Courses Grid -->
+                <div id="courses-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Tech Courses -->
+                    <div class="course-card tech bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="bg-blue-500 text-white p-4">
+                            <div class="text-3xl mb-2">💻</div>
+                            <h3 class="text-xl font-semibold">Programación Web</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4">Aprende HTML, CSS y JavaScript desde cero</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm text-gray-500">⏱️ 8 semanas</span>
+                                <span class="text-sm text-gray-500">👥 156 estudiantes</span>
+                            </div>
+                            <button onclick="enrollCourse('Programación Web')" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium">Inscribirse</button>
+                        </div>
+                    </div>
+
+                    <div class="course-card tech bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="bg-purple-500 text-white p-4">
+                            <div class="text-3xl mb-2">📱</div>
+                            <h3 class="text-xl font-semibold">Desarrollo de Apps</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4">Crea aplicaciones móviles modernas</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm text-gray-500">⏱️ 10 semanas</span>
+                                <span class="text-sm text-gray-500">👥 89 estudiantes</span>
+                            </div>
+                            <button onclick="enrollCourse('Desarrollo de Apps')" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium">Inscribirse</button>
+                        </div>
+                    </div>
+
+                    <!-- Art Courses -->
+                    <div class="course-card art bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="bg-pink-500 text-white p-4">
+                            <div class="text-3xl mb-2">🎨</div>
+                            <h3 class="text-xl font-semibold">Diseño Gráfico</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4">Domina las herramientas de diseño digital</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm text-gray-500">⏱️ 6 semanas</span>
+                                <span class="text-sm text-gray-500">👥 203 estudiantes</span>
+                            </div>
+                            <button onclick="enrollCourse('Diseño Gráfico')" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium">Inscribirse</button>
+                        </div>
+                    </div>
+
+                    <div class="course-card art bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="bg-orange-500 text-white p-4">
+                            <div class="text-3xl mb-2">🎬</div>
+                            <h3 class="text-xl font-semibold">Producción Audiovisual</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4">Crea contenido visual profesional</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm text-gray-500">⏱️ 12 semanas</span>
+                                <span class="text-sm text-gray-500">👥 67 estudiantes</span>
+                            </div>
+                            <button onclick="enrollCourse('Producción Audiovisual')" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium">Inscribirse</button>
+                        </div>
+                    </div>
+
+                    <!-- Health Courses -->
+                    <div class="course-card health bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="bg-green-500 text-white p-4">
+                            <div class="text-3xl mb-2">🏥</div>
+                            <h3 class="text-xl font-semibold">Primeros Auxilios</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4">Conocimientos básicos de atención médica</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm text-gray-500">⏱️ 4 semanas</span>
+                                <span class="text-sm text-gray-500">👥 312 estudiantes</span>
+                            </div>
+                            <button onclick="enrollCourse('Primeros Auxilios')" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium">Inscribirse</button>
+                        </div>
+                    </div>
+
+                    <!-- Business Courses -->
+                    <div class="course-card business bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="bg-yellow-500 text-white p-4">
+                            <div class="text-3xl mb-2">💼</div>
+                            <h3 class="text-xl font-semibold">Emprendimiento Digital</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4">Lanza tu startup desde cero</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm text-gray-500">⏱️ 8 semanas</span>
+                                <span class="text-sm text-gray-500">👥 145 estudiantes</span>
+                            </div>
+                            <button onclick="enrollCourse('Emprendimiento Digital')" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium">Inscribirse</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vocational Section -->
+    <div id="vocational-section" class="section hidden">
+        <div class="py-12 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">🧭 Orientación Vocacional</h1>
+                    <p class="text-lg text-gray-600">Descubre tu camino profesional ideal</p>
+                </div>
+
+                <!-- Vocational Tools -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                        <div class="text-4xl mb-4">🎯</div>
+                        <h3 class="text-xl font-semibold mb-4">Test de Intereses</h3>
+                        <p class="text-gray-600 mb-6">Identifica las áreas que más te motivan y despiertan tu curiosidad.</p>
+                        <button onclick="startTest('interests')" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium">Comenzar Test</button>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                        <div class="text-4xl mb-4">💪</div>
+                        <h3 class="text-xl font-semibold mb-4">Test de Habilidades</h3>
+                        <p class="text-gray-600 mb-6">Evalúa tus fortalezas y competencias naturales.</p>
+                        <button onclick="startTest('skills')" class="w-full bg-secondary text-white py-3 rounded-lg hover:bg-green-600 transition font-medium">Comenzar Test</button>
+                    </div>
+                </div>
+
+                <!-- Test Interface -->
+                <div id="test-interface" class="hidden bg-white rounded-xl shadow-lg p-8">
+                    <div id="test-content">
+                        <!-- Test content will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div id="test-results" class="hidden bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-center">🎉 Tus Resultados</h3>
+                    <div id="results-content">
+                        <!-- Results will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mentors Section -->
+    <div id="mentors-section" class="section hidden">
+        <div class="py-12 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">👥 Nuestros Mentores</h1>
+                    <p class="text-lg text-gray-600">Conecta con profesionales experimentados</p>
+                </div>
+
+                <!-- Mentors Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">AM</div>
+                            <h3 class="text-xl font-semibold text-center mb-2">Ana Martínez</h3>
+                            <p class="text-center text-gray-600 mb-4">Desarrolladora Senior</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">React</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Node.js</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">5 años de experiencia en desarrollo web. Especialista en aplicaciones modernas.</p>
+                            <button onclick="scheduleMentor('Ana Martínez')" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium">Agendar Sesión</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">CL</div>
+                            <h3 class="text-xl font-semibold text-center mb-2">Carlos López</h3>
+                            <p class="text-center text-gray-600 mb-4">Diseñador UX/UI</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Figma</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Adobe XD</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Prototipado</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">8 años creando experiencias digitales excepcionales para startups y empresas.</p>
+                            <button onclick="scheduleMentor('Carlos López')" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium">Agendar Sesión</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="w-20 h-20 bg-purple-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">MR</div>
+                            <h3 class="text-xl font-semibold text-center mb-2">María Rodríguez</h3>
+                            <p class="text-center text-gray-600 mb-4">Emprendedora Digital</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Startups</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Marketing</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Finanzas</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Fundadora de 3 empresas exitosas. Experta en modelos de negocio digitales.</p>
+                            <button onclick="scheduleMentor('María Rodríguez')" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium">Agendar Sesión</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">JG</div>
+                            <h3 class="text-xl font-semibold text-center mb-2">Jorge García</h3>
+                            <p class="text-center text-gray-600 mb-4">Especialista en Salud</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Medicina</span>
+                                <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Investigación</span>
+                                <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Salud Pública</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Médico con 12 años de experiencia. Especialista en orientación para carreras de salud.</p>
+                            <button onclick="scheduleMentor('Jorge García')" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium">Agendar Sesión</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">LS</div>
+                            <h3 class="text-xl font-semibold text-center mb-2">Laura Silva</h3>
+                            <p class="text-center text-gray-600 mb-4">Artista Digital</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Ilustración</span>
+                                <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Animación</span>
+                                <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Branding</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Artista freelance con portafolio internacional. Especialista en arte digital y creatividad.</p>
+                            <button onclick="scheduleMentor('Laura Silva')" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium">Agendar Sesión</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="w-20 h-20 bg-indigo-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">DP</div>
+                            <h3 class="text-xl font-semibold text-center mb-2">Diego Pérez</h3>
+                            <p class="text-center text-gray-600 mb-4">Ingeniero de Datos</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Python</span>
+                                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Machine Learning</span>
+                                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Big Data</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Experto en ciencia de datos con experiencia en empresas tecnológicas líderes.</p>
+                            <button onclick="scheduleMentor('Diego Pérez')" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium">Agendar Sesión</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Section -->
+    <div id="profile-section" class="section hidden">
+        <div class="py-12 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">👤 Mi Perfil</h1>
+                    <p class="text-lg text-gray-600">Seguimiento de tu progreso y recomendaciones personalizadas</p>
+                </div>
+
+                <div id="profile-content" class="space-y-8">
+                    <!-- User Info -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h3 class="text-xl font-semibold mb-6">Información Personal</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nombre</label>
+                                <input type="text" id="user-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Tu nombre completo">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" id="user-email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="tu@email.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Edad</label>
+                                <input type="number" id="user-age" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="25">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Intereses Principales</label>
+                                <select id="user-interests" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    <option>Selecciona un área</option>
+                                    <option>Tecnología</option>
+                                    <option>Arte y Diseño</option>
+                                    <option>Salud</option>
+                                    <option>Emprendimiento</option>
+                                    <option>Educación</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button onclick="saveProfile()" class="mt-6 bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-medium">Guardar Cambios</button>
+                    </div>
+
+                    <!-- Progress Tracking -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h3 class="text-xl font-semibold mb-6">Mi Progreso</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <div class="text-2xl mr-4">💻</div>
+                                    <div>
+                                        <h4 class="font-medium">Programación Web</h4>
+                                        <p class="text-sm text-gray-600">Progreso: 65%</p>
+                                    </div>
+                                </div>
+                                <div class="w-24 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 65%"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <div class="text-2xl mr-4">🎨</div>
+                                    <div>
+                                        <h4 class="font-medium">Diseño Gráfico</h4>
+                                        <p class="text-sm text-gray-600">Progreso: 30%</p>
+                                    </div>
+                                </div>
+                                <div class="w-24 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-secondary h-2 rounded-full" style="width: 30%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recommendations -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h3 class="text-xl font-semibold mb-6">Recomendaciones Personalizadas</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 border border-gray-200 rounded-lg">
+                                <h4 class="font-medium mb-2">📱 Desarrollo de Apps</h4>
+                                <p class="text-sm text-gray-600 mb-3">Basado en tu progreso en Programación Web, este curso complementará perfectamente tus habilidades.</p>
+                                <button onclick="enrollCourse('Desarrollo de Apps')" class="text-primary hover:text-blue-700 font-medium text-sm">Ver Curso →</button>
+                            </div>
+                            <div class="p-4 border border-gray-200 rounded-lg">
+                                <h4 class="font-medium mb-2">👥 Sesión con Ana Martínez</h4>
+                                <p class="text-sm text-gray-600 mb-3">Como desarrolladora senior, Ana puede ayudarte a acelerar tu aprendizaje en programación.</p>
+                                <button onclick="scheduleMentor('Ana Martínez')" class="text-primary hover:text-blue-700 font-medium text-sm">Agendar Sesión →</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Iniciar Sesión</h2>
+                <p class="text-gray-600">Accede a tu cuenta</p>
+            </div>
+            <form onsubmit="handleLogin(event)">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="tu@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Contraseña</label>
+                        <input type="password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="••••••••">
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium mt-6">Iniciar Sesión</button>
+            </form>
+            <div class="text-center mt-4">
+                <button onclick="closeModal(); showRegister();" class="text-primary hover:text-blue-700">¿No tienes cuenta? Regístrate</button>
+            </div>
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="register-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Crear Cuenta</h2>
+                <p class="text-gray-600">Únete a nuestra comunidad</p>
+            </div>
+            <form onsubmit="handleRegister(event)">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nombre Completo</label>
+                        <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Tu nombre completo">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="tu@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Contraseña</label>
+                        <input type="password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="••••••••">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Confirmar Contraseña</label>
+                        <input type="password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="••••••••">
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium mt-6">Crear Cuenta</button>
+            </form>
+            <div class="text-center mt-4">
+                <button onclick="closeModal(); showLogin();" class="text-primary hover:text-blue-700">¿Ya tienes cuenta? Inicia sesión</button>
+            </div>
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8 text-center">
+            <div class="text-6xl mb-4">🎉</div>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">¡Éxito!</h2>
+            <p id="success-message" class="text-gray-600 mb-6"></p>
+            <button onclick="closeModal()" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-medium">Continuar</button>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let currentUser = null;
+        let currentTest = null;
+        let testProgress = 0;
+
+        // Navigation functions
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionName + '-section').classList.remove('hidden');
+            
+            // Update nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('text-primary', 'font-semibold');
+                link.classList.add('text-gray-700');
+            });
+            
+            // Close mobile menu
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Modal functions
+        function showLogin() {
+            document.getElementById('login-modal').classList.remove('hidden');
+        }
+
+        function showRegister() {
+            document.getElementById('register-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.querySelectorAll('[id$="-modal"]').forEach(modal => {
+                modal.classList.add('hidden');
+            });
+        }
+
+        function showSuccess(message) {
+            document.getElementById('success-message').textContent = message;
+            document.getElementById('success-modal').classList.remove('hidden');
+        }
+
+        // Authentication functions
+        function handleLogin(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const email = formData.get('email') || event.target.querySelector('input[type="email"]').value;
+            
+            // Simulate login
+            currentUser = { email: email, name: email.split('@')[0] };
+            closeModal();
+            showSuccess('¡Bienvenido de vuelta! Has iniciado sesión correctamente.');
+            
+            // Update UI for logged in user
+            updateUIForLoggedInUser();
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+            const inputs = event.target.querySelectorAll('input');
+            const name = inputs[0].value;
+            const email = inputs[1].value;
+            const password = inputs[2].value;
+            const confirmPassword = inputs[3].value;
+            
+            if (password !== confirmPassword) {
+                alert('Las contraseñas no coinciden');
+                return;
+            }
+            
+            // Simulate registration
+            currentUser = { email: email, name: name };
+            closeModal();
+            showSuccess('¡Cuenta creada exitosamente! Ya puedes comenzar tu viaje de aprendizaje.');
+            
+            // Update UI for logged in user
+            updateUIForLoggedInUser();
+        }
+
+        function updateUIForLoggedInUser() {
+            // Update profile section with user data
+            if (currentUser) {
+                document.getElementById('user-name').value = currentUser.name;
+                document.getElementById('user-email').value = currentUser.email;
+            }
+        }
+
+        // Course functions
+        function filterCourses(category) {
+            const courses = document.querySelectorAll('.course-card');
+            const buttons = document.querySelectorAll('.category-btn');
+            
+            // Update button styles
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+            event.target.classList.add('bg-primary', 'text-white');
+            
+            // Filter courses
+            courses.forEach(course => {
+                if (category === 'all' || course.classList.contains(category)) {
+                    course.style.display = 'block';
+                } else {
+                    course.style.display = 'none';
+                }
+            });
+        }
+
+        function enrollCourse(courseName) {
+            if (!currentUser) {
+                showLogin();
+                return;
+            }
+            showSuccess(`¡Te has inscrito exitosamente en "${courseName}"! Recibirás un email con los detalles del curso.`);
+        }
+
+        // Vocational test functions
+        const testQuestions = {
+            interests: [
+                {
+                    question: "¿Qué actividad te resulta más atractiva?",
+                    options: [
+                        { text: "Resolver problemas técnicos complejos", category: "tech" },
+                        { text: "Crear diseños visuales impactantes", category: "art" },
+                        { text: "Ayudar a personas con problemas de salud", category: "health" },
+                        { text: "Desarrollar nuevas ideas de negocio", category: "business" }
+                    ]
+                },
+                {
+                    question: "¿En qué ambiente prefieres trabajar?",
+                    options: [
+                        { text: "Oficina con tecnología de punta", category: "tech" },
+                        { text: "Estudio creativo y colorido", category: "art" },
+                        { text: "Hospital o clínica médica", category: "health" },
+                        { text: "Espacios de coworking dinámicos", category: "business" }
+                    ]
+                },
+                {
+                    question: "¿Qué te motiva más en el trabajo?",
+                    options: [
+                        { text: "Innovar y crear soluciones tecnológicas", category: "tech" },
+                        { text: "Expresar creatividad y emociones", category: "art" },
+                        { text: "Mejorar la calidad de vida de otros", category: "health" },
+                        { text: "Generar impacto económico y social", category: "business" }
+                    ]
+                }
+            ],
+            skills: [
+                {
+                    question: "¿En qué área sientes que tienes más habilidades naturales?",
+                    options: [
+                        { text: "Lógica y resolución de problemas", category: "tech" },
+                        { text: "Creatividad y expresión artística", category: "art" },
+                        { text: "Empatía y cuidado de otros", category: "health" },
+                        { text: "Liderazgo y comunicación", category: "business" }
+                    ]
+                },
+                {
+                    question: "¿Qué tipo de desafíos disfrutas más?",
+                    options: [
+                        { text: "Programar y automatizar procesos", category: "tech" },
+                        { text: "Diseñar y crear contenido visual", category: "art" },
+                        { text: "Diagnosticar y tratar problemas", category: "health" },
+                        { text: "Negociar y cerrar acuerdos", category: "business" }
+                    ]
+                },
+                {
+                    question: "¿Cómo prefieres aprender cosas nuevas?",
+                    options: [
+                        { text: "Experimentando con código y herramientas", category: "tech" },
+                        { text: "Practicando técnicas artísticas", category: "art" },
+                        { text: "Estudiando casos clínicos reales", category: "health" },
+                        { text: "Analizando casos de éxito empresarial", category: "business" }
+                    ]
+                }
+            ]
+        };
+
+        function startTest(testType) {
+            currentTest = testType;
+            testProgress = 0;
+            document.getElementById('test-interface').classList.remove('hidden');
+            document.getElementById('test-results').classList.add('hidden');
+            showTestQuestion();
+        }
+
+        function showTestQuestion() {
+            const questions = testQuestions[currentTest];
+            const question = questions[testProgress];
+            
+            const content = `
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-semibold">Pregunta ${testProgress + 1} de ${questions.length}</h3>
+                        <div class="w-32 bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full transition-all duration-300" style="width: ${((testProgress + 1) / questions.length) * 100}%"></div>
+                        </div>
+                    </div>
+                    <h4 class="text-lg mb-6">${question.question}</h4>
+                    <div class="space-y-3">
+                        ${question.options.map((option, index) => `
+                            <button onclick="selectAnswer('${option.category}')" class="w-full text-left p-4 border border-gray-300 rounded-lg hover:border-primary hover:bg-blue-50 transition">
+                                ${option.text}
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('test-content').innerHTML = content;
+        }
+
+        let testAnswers = [];
+
+        function selectAnswer(category) {
+            testAnswers.push(category);
+            testProgress++;
+            
+            if (testProgress < testQuestions[currentTest].length) {
+                showTestQuestion();
+            } else {
+                showTestResults();
+            }
+        }
+
+        function showTestResults() {
+            document.getElementById('test-interface').classList.add('hidden');
+            document.getElementById('test-results').classList.remove('hidden');
+            
+            // Calculate results
+            const counts = {};
+            testAnswers.forEach(answer => {
+                counts[answer] = (counts[answer] || 0) + 1;
+            });
+            
+            const topCategory = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
+            
+            const categoryInfo = {
+                tech: {
+                    name: "Tecnología",
+                    icon: "💻",
+                    description: "Tienes una fuerte inclinación hacia la tecnología y la innovación. Te atraen los desafíos técnicos y la resolución de problemas complejos.",
+                    courses: ["Programación Web", "Desarrollo de Apps"],
+                    mentors: ["Ana Martínez", "Diego Pérez"]
+                },
+                art: {
+                    name: "Arte y Diseño",
+                    icon: "🎨",
+                    description: "Tu perfil creativo es muy marcado. Tienes talento para la expresión visual y la comunicación a través del arte.",
+                    courses: ["Diseño Gráfico", "Producción Audiovisual"],
+                    mentors: ["Carlos López", "Laura Silva"]
+                },
+                health: {
+                    name: "Salud",
+                    icon: "🏥",
+                    description: "Muestras una vocación clara hacia el cuidado y bienestar de otros. Te motiva ayudar y mejorar la calidad de vida.",
+                    courses: ["Primeros Auxilios"],
+                    mentors: ["Jorge García"]
+                },
+                business: {
+                    name: "Emprendimiento",
+                    icon: "💼",
+                    description: "Tienes un perfil emprendedor natural. Te atraen los desafíos de negocio y la creación de valor.",
+                    courses: ["Emprendimiento Digital"],
+                    mentors: ["María Rodríguez"]
+                }
+            };
+            
+            const result = categoryInfo[topCategory];
+            
+            const content = `
+                <div class="text-center mb-8">
+                    <div class="text-6xl mb-4">${result.icon}</div>
+                    <h4 class="text-2xl font-bold mb-4">Tu área recomendada: ${result.name}</h4>
+                    <p class="text-gray-600 text-lg">${result.description}</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h5 class="font-semibold mb-4">📚 Cursos Recomendados</h5>
+                        <div class="space-y-2">
+                            ${result.courses.map(course => `
+                                <button onclick="enrollCourse('${course}')" class="block w-full text-left p-3 bg-white rounded border hover:border-primary transition">
+                                    ${course}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <h5 class="font-semibold mb-4">👥 Mentores Sugeridos</h5>
+                        <div class="space-y-2">
+                            ${result.mentors.map(mentor => `
+                                <button onclick="scheduleMentor('${mentor}')" class="block w-full text-left p-3 bg-white rounded border hover:border-primary transition">
+                                    ${mentor}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <button onclick="restartTest()" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-medium mr-4">Repetir Test</button>
+                    <button onclick="showSection('courses')" class="bg-secondary text-white px-6 py-3 rounded-lg hover:bg-green-600 transition font-medium">Ver Cursos</button>
+                </div>
+            `;
+            
+            document.getElementById('results-content').innerHTML = content;
+            testAnswers = [];
+        }
+
+        function restartTest() {
+            document.getElementById('test-results').classList.add('hidden');
+            document.getElementById('test-interface').classList.add('hidden');
+        }
+
+        // Mentor functions
+        function scheduleMentor(mentorName) {
+            if (!currentUser) {
+                showLogin();
+                return;
+            }
+            showSuccess(`¡Sesión agendada con ${mentorName}! Recibirás un email con los detalles para coordinar la reunión.`);
+        }
+
+        // Profile functions
+        function saveProfile() {
+            const name = document.getElementById('user-name').value;
+            const email = document.getElementById('user-email').value;
+            const age = document.getElementById('user-age').value;
+            const interests = document.getElementById('user-interests').value;
+            
+            if (!name || !email) {
+                alert('Por favor completa los campos obligatorios');
+                return;
+            }
+            
+            // Update current user
+            if (currentUser) {
+                currentUser.name = name;
+                currentUser.email = email;
+                currentUser.age = age;
+                currentUser.interests = interests;
+            }
+            
+            showSuccess('¡Perfil actualizado correctamente! Tus recomendaciones se han personalizado.');
+        }
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show home section by default
+            showSection('home');
+            
+            // Close modals when clicking outside
+            document.querySelectorAll('[id$="-modal"]').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeModal();
+                    }
+                });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982254b836607b05',t:'MTc1ODM4MTg3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
